@@ -19,7 +19,7 @@ public class Account {
         System.out.println("Name of account holder: " + name);  
         System.out.println("Account no.: " + accNo);  
         System.out.println("Account type: " + accType.toString().substring(0,1) + accType.toString().substring(1).toLowerCase());  
-        System.out.println("Balance: RM" + balance);  
+        System.out.println("Balance: RM" + balance + "\n");  
     }  
     
     public void deposit(long amount) { 
