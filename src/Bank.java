@@ -8,8 +8,11 @@ public class Bank {
 
     public List<Account> accList = new ArrayList<>();
     public Account selectedAcc;
-    
-    Scanner sc = new Scanner(System.in);  
+	Scanner sc = new Scanner(System.in);  
+
+	public Bank() {
+		accList.add(new Account("1234567890", Account.AccountType.SAVINGS, 9000));
+	}
 
 	public void openAccount() {
 		System.out.print("Enter Account No: ");
@@ -41,11 +44,7 @@ public class Bank {
 			return;
 		}
 
-		sc.nextLine();
-		System.out.print("Enter Name: ");
-		String name = sc.nextLine();
-
-		accList.add(new Account(accNo, name, accType, 0));
+		accList.add(new Account(accNo, accType, 0));
 	}
 
 	public void depositOption(Account acc) {

@@ -8,6 +8,8 @@ public class BankingApp {
 		int ch;
 		do {
 			System.out.println("\n ***Banking System Application***");
+			System.out.println("-------------------------------------");
+			System.out.println("Welcome, Aisyah!");
 			System.out.println("1. Display all accounts details");
 			System.out.println("2. Search by account number");
 			System.out.println("3. Deposit the amount");
