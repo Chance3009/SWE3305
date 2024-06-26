@@ -87,8 +87,7 @@ public class BankingApp {
 				break;
 			case 6:
 				System.out.println("See you next time!");
-				sc.close();
-				System.exit(0);
+				break;
 			default:
 				System.out.println("\nPlease enter valid option [1-6]");
 			}
