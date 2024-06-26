@@ -26,4 +26,9 @@ public class Account {
     public void withdraw(long amount) { 
         balance -= amount;  
     }
+
+    @Override
+	public String toString() {
+		return this.accNo;
+	}
 }

@@ -25,14 +25,16 @@ public class Bank {
 
 		System.out.print("Enter Account type ([C]urrent | [S]avings): ");
 		String accTypeOption = sc.next();
-		Account.AccountType accType = Account.AccountType.CURRENT;
+		Account.AccountType accType;
 
 		switch (accTypeOption.charAt(0)) {
 		case 'C':
 			accType = Account.AccountType.CURRENT;
+			System.out.println("Opening a current account...");
 			break;
 		case 'S':
 			accType = Account.AccountType.SAVINGS;
+			System.out.println("Opening a savings account...");
 			break;
 		default:
 			System.out.println(
@@ -57,6 +59,7 @@ public class Bank {
 		}
 
 		acc.deposit(amt);
+		System.out.println("You have successfully deposit RM" + amt + " to account " + acc);
 		acc.showAccount();
 	}
 
@@ -69,11 +72,12 @@ public class Bank {
 			System.out.println("Invalid amount: " + amt + ". The withdrawal amount cannot be negative.");
 			return;
 		} else if (acc.balance <= amt) {
-			System.out.println("Your balance is less than RM" + amt + ". Transaction failed...!!");
+			System.out.println("Your balance is less than RM" + amt + ". Withdrawal failed...!!");
 			return;
 		}
 
 		acc.withdraw(amt);
+		System.out.println("You have successfully withdraw RM" + amt + " from account " + acc);
 		acc.showAccount();
 	}
 

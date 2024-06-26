@@ -4,7 +4,6 @@ public class BankingApp {
 	public static void main(String arg[]) {
 		Bank bank = new Bank();
 		Scanner sc = new Scanner(System.in);
-
 		int ch;
 		do {
 			System.out.println("\n ***Banking System Application***");
@@ -30,40 +29,57 @@ public class BankingApp {
 				System.out.println("-----Search Account-----");
 				System.out.print("Enter account no. you want to search: ");
 				String ac_no = sc.next();
-				boolean found = bank.isAccNoExist(ac_no);
 
-				if (found) {
-					bank.selectedAcc.showAccount();
-				} else {
-					System.out.println("Search failed! Account doesn't exist..!!");
+				if (!bank.isValidAcc(ac_no)) {
+					System.out.println(
+							"Your typed account number is invalid. Please ensures that it contains exactly 10 digits.");
+					break;
 				}
 
+				if (!bank.isAccNoExist(ac_no)) {
+					System.out.println("Search failed! Account doesn't exist..!!");
+					break;
+				}
+
+				bank.selectedAcc.showAccount();
 				break;
 			case 3:
 				System.out.println("-----Deposit-----");
 				System.out.print("Enter Account no. : ");
 				ac_no = sc.next();
-				found = bank.isAccNoExist(ac_no);
 
-				if (found) {
-					bank.depositOption(bank.selectedAcc);
-				} else {
-					System.out.println("Search failed! Account doesn't exist..!!");
+				if (!bank.isValidAcc(ac_no)) {
+					System.out.println(
+							"Your typed account number is invalid. Please ensures that it contains exactly 10 digits before performing deposit operation.");
+					break;
 				}
 
+				if (!bank.isAccNoExist(ac_no)) {
+					System.out.println(
+							"Search failed! Account doesn't exist..!! You can't deposit money to an account that you don't own!");
+					break;
+				}
+
+				bank.depositOption(bank.selectedAcc);
 				break;
 			case 4:
 				System.out.println("-----Withdrawal-----");
 				System.out.print("Enter Account no. : ");
 				ac_no = sc.next();
-				found = bank.isAccNoExist(ac_no);
 
-				if (found) {
-					bank.withdrawalOption(bank.selectedAcc);
-				} else {
-					System.out.println("Search failed! Account doesn't exist..!!");
+				if (!bank.isValidAcc(ac_no)) {
+					System.out.println(
+							"Your typed account number is invalid. Please ensures that it contains exactly 10 digits before performing withdrawal operation.");
+					break;
 				}
 
+				if (!bank.isAccNoExist(ac_no)) {
+					System.out.println(
+							"Search failed! Account doesn't exist..!! You can't withdraw money from an account that you don't own!");
+					break;
+				}
+
+				bank.withdrawalOption(bank.selectedAcc);
 				break;
 			case 5:
 				System.out.println("-----Open New Account-----");
