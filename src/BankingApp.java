@@ -12,21 +12,22 @@ public class BankingApp {
 			System.out.println("Welcome, Aisyah!");
 			System.out.println("1. Display all accounts details");
 			System.out.println("2. Search by account number");
-			System.out.println("3. Deposit the amount");
-			System.out.println("4. Withdraw the amount");
+			System.out.println("3. Deposit an amount");
+			System.out.println("4. Withdraw an amount");
 			System.out.println("5. Open a new account");
 			System.out.println("6. Exit");
-
 			System.out.print("\nEnter your choice: ");
 
 			ch = sc.nextInt();
 			switch (ch) {
 			case 1:
+				System.out.println("-----Display All Accounts-----");
 				for (Account acc : bank.accList) {
 					acc.showAccount();
 				}
 				break;
 			case 2:
+				System.out.println("-----Search Account-----");
 				System.out.print("Enter account no. you want to search: ");
 				String ac_no = sc.next();
 				boolean found = bank.isAccNoExist(ac_no);
@@ -39,6 +40,7 @@ public class BankingApp {
 
 				break;
 			case 3:
+				System.out.println("-----Deposit-----");
 				System.out.print("Enter Account no. : ");
 				ac_no = sc.next();
 				found = bank.isAccNoExist(ac_no);
@@ -51,6 +53,7 @@ public class BankingApp {
 
 				break;
 			case 4:
+				System.out.println("-----Withdrawal-----");
 				System.out.print("Enter Account no. : ");
 				ac_no = sc.next();
 				found = bank.isAccNoExist(ac_no);
@@ -63,6 +66,7 @@ public class BankingApp {
 
 				break;
 			case 5:
+				System.out.println("-----Open New Account-----");
 				bank.openAccount();
 				break;
 			case 6:

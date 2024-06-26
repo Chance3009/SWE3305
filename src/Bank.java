@@ -4,17 +4,13 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Bank {  
+public class Bank {
 
-    public List<Account> accList = new ArrayList<>();
-    public Account selectedAcc;
-	Scanner sc = new Scanner(System.in);  
-
-	public Bank() {
-		accList.add(new Account("1234567890", Account.AccountType.SAVINGS, 9000));
-	}
+	public List<Account> accList = new ArrayList<>();
+	public Account selectedAcc;
 
 	public void openAccount() {
+		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter Account No: ");
 		String accNo = sc.next();
 
@@ -48,6 +44,7 @@ public class Bank {
 	}
 
 	public void depositOption(Account acc) {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the amount you want to deposit: RM");
 		long amt = sc.nextLong();
 
@@ -64,6 +61,7 @@ public class Bank {
 	}
 
 	public void withdrawalOption(Account acc) {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the amount you want to withdraw: ");
 		long amt = sc.nextLong();
 
@@ -79,21 +77,21 @@ public class Bank {
 		acc.showAccount();
 	}
 
-    public boolean isAccNoExist(String accNo) {
-        for (Account account : accList) {
-            if (account.accNo.equals(accNo)) {
-                selectedAcc = account; 
-                return true; 
-            }
-        }
-        return false; 
-    }
+	public boolean isAccNoExist(String accNo) {
+		for (Account account : accList) {
+			if (account.accNo.equals(accNo)) {
+				selectedAcc = account;
+				return true;
+			}
+		}
+		return false;
+	}
 
-    public boolean isValidAcc(String accNo) {
-    	String regex = "^[1-9]\\d{9}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(accNo);
-          
-    	return matcher.matches();
-    }
-}  
+	public boolean isValidAcc(String accNo) {
+		String regex = "^[1-9]\\d{9}$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(accNo);
+
+		return matcher.matches();
+	}
+}
