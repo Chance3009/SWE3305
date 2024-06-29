@@ -9,8 +9,7 @@ public class Bank {
 	public List<Account> accList = new ArrayList<>();
 	public Account selectedAcc;
 
-	public void openAccount() {
-		Scanner sc = new Scanner(System.in);
+	public void openAccount(Scanner sc) {
 		System.out.print("Enter Account No: ");
 		String accNo = sc.next();
 
@@ -18,7 +17,10 @@ public class Bank {
 			System.out.println("Invalid account number: " + accNo
 					+ ". Account number should be a 10-digit number that does not start with 0.");
 			return;
-		} else if (isAccNoExist(accNo)) {
+		}
+
+		System.out.println("-----Checking if your account exists to perform account opening-----");
+		if (isAccNoExist(accNo)) {
 			System.out.println("Invalid account number: " + accNo + ". Account already exists.");
 			return;
 		}
@@ -45,9 +47,8 @@ public class Bank {
 		accList.add(new Account(accNo, accType, 0));
 	}
 
-	public void depositOption(Account acc) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the amount you want to deposit: RM");
+	public void depositOption(Account acc, Scanner sc) {
+		System.out.print("Enter the amount you want to deposit: RM");
 		long amt = sc.nextLong();
 
 		if (amt < 0) {
@@ -63,9 +64,8 @@ public class Bank {
 		acc.showAccount();
 	}
 
-	public void withdrawalOption(Account acc) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the amount you want to withdraw: ");
+	public void withdrawalOption(Account acc, Scanner sc) {
+		System.out.print("Enter the amount you want to withdraw: RM");
 		long amt = sc.nextLong();
 
 		if (amt < 0) {

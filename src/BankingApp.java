@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class BankingApp {
+	static Bank bank = new Bank();
+
 	public static void main(String arg[]) {
-		Bank bank = new Bank();
 		Scanner sc = new Scanner(System.in);
 		int ch;
 		do {
@@ -62,7 +63,7 @@ public class BankingApp {
 					break;
 				}
 
-				bank.depositOption(bank.selectedAcc);
+				bank.depositOption(bank.selectedAcc, sc);
 				break;
 			case 4:
 				System.out.println("-----Withdrawal-----");
@@ -82,11 +83,11 @@ public class BankingApp {
 					break;
 				}
 
-				bank.withdrawalOption(bank.selectedAcc);
+				bank.withdrawalOption(bank.selectedAcc, sc);
 				break;
 			case 5:
 				System.out.println("-----Open New Account-----");
-				bank.openAccount();
+				bank.openAccount(sc);
 				break;
 			case 6:
 				System.out.println("See you next time!");
