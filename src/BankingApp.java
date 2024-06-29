@@ -35,11 +35,7 @@ public class BankingApp {
 							"Your typed account number is invalid. Please ensures that it contains exactly 10 digits.");
 					break;
 				}
-				else{ 
-					System.out.println(
-							"-----Checking if your account exists to proceed with search-----");
-					break;
-				}
+				System.out.println("-----Checking if your account exists to proceed with search-----");
 
 				if (!bank.isAccNoExist(ac_no)) {
 					System.out.println("Search failed! Account doesn't exist..!!");
@@ -57,11 +53,8 @@ public class BankingApp {
 					System.out.println(
 							"Your typed account number is invalid. Please ensures that it contains exactly 10 digits before performing deposit operation.");
 					break;
-				}else{ 
-					System.out.println(
-							"-----Checking if your account exists to perform deposit-----");
-					break;
 				}
+				System.out.println("-----Checking if your account exists to perform deposit-----");
 
 				if (!bank.isAccNoExist(ac_no)) {
 					System.out.println(
@@ -80,11 +73,8 @@ public class BankingApp {
 					System.out.println(
 							"Your typed account number is invalid. Please ensures that it contains exactly 10 digits before performing withdrawal operation.");
 					break;
-				}else{ 
-					System.out.println(
-							"-----Checking if your account exists to perform withdrawal-----");
-					break;
 				}
+				System.out.println("-----Checking if your account exists to perform withdrawal-----");
 
 				if (!bank.isAccNoExist(ac_no)) {
 					System.out.println(
